@@ -1,0 +1,30 @@
+<ion-content>
+<div class="header-pefil">
+  <div class="content-header-perfil-image">
+      <img [src]=im alt="Logo" class="ImagenUsuario">
+    <h3 class="nombre_usuario" >{{name_user}}</h3>
+  </div>
+</div>
+<!-- List Full Lines    detail href="ajustes-de-cuenta/" [routerLink]="[`ajustes-de-cuenta/${uid}`]"    -->
+<ion-list lines="full">
+  <ion-item detail (click)="ajustes()">
+    <img src="../../assets/icon/i-user.png">
+    <ion-label>Ajustes de cuenta</ion-label>
+  </ion-item>
+
+  <ion-item detail href="#">
+    <img class="img-cards" src="../../assets/icon/i-card.png">
+    <ion-label>Tarjetas</ion-label>
+  </ion-item> 
+
+  <ion-item detail href="centro-ayuda"> 
+    <img src="../../assets/icon/i-question2.png">
+    <ion-label>Centro de ayuda</ion-label>
+  </ion-item>
+
+  <ion-item detail (click)="Onlogout()">
+    <img src="../../assets/icon/i-off.png">
+    <ion-label>Cerrar sesión</ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>

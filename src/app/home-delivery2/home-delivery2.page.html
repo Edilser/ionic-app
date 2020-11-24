@@ -1,0 +1,122 @@
+<ion-content>
+  <div class="header-menu">
+    <div class="content-header-rift">
+      <h3 class="custom-title1">¡Hola!</h3>
+      <p class="custom-text1">¿Estos son tus envíos?</p>
+    </div>
+    <div class="rift-image">
+      <img src="../../assets/icon/delivery-package.png" alt="Logo">
+    </div>
+  </div>
+  <!-- List of Text Items-->
+  <ion-list>
+    <h5 class="datess">{{fecha}}</h5>
+    <div *ngIf="TotalShipment; else ninguno">
+      <ion-item lines="full" *ngFor="let item of ShipmentsToday"
+        [routerLink]="['/single-delivery/'+item.key+'/'+business_key]" routerDirection="forward">
+        <div *ngIf="item.uid_user === uid">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>
+                  <h3 class="name">{{ item.nombre_desti }}</h3>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3">
+                <ion-label>
+                  <h4>Origen: </h4>
+                </ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label>
+                  <p>{{ item.direccion_salida_exact }}</p>
+                </ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-label>
+                  <ion-icon class="arrow-rigth" name="chevron-forward-outline" style="width: 100px; height: 20px;">
+                  </ion-icon>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3">
+                <ion-label>
+                  <h4 class="destino">Destino: </h4>
+                </ion-label>
+              </ion-col>
+              <ion-col size="9">
+                <ion-label>
+                  <p>{{ item.direccion_llegada_exact }}</p>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+    </div>
+    <ng-template #ninguno> 
+      <div class="centrar">
+        <h4>No tienes envios</h4>
+      </div>
+    </ng-template>
+    <h5 class="datess">{{fechaT}}</h5>
+    <div *ngIf="TotalShipment; else ninguno2">
+      <ion-item *ngFor="let item of ShipmentsTomorrow" [routerLink]="['/single-delivery/'+item.key+'/'+business_key]"
+        routerDirection="forward">
+        <div *ngIf="item.uid_user === uid">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>
+                  <h3 class="name">{{ item.nombre_desti }}</h3>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3">
+                <ion-label>
+                  <h4>Origen: </h4>
+                </ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-label>
+                  <p>{{ item.direccion_salida_exact }}</p>
+                </ion-label>
+              </ion-col>
+              <ion-col size="3">
+                <ion-label>
+                  <ion-icon class="arrow-rigth" name="chevron-forward-outline" style="width: 100px; height: 20px;">
+                  </ion-icon>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="3">
+                <ion-label>
+                  <h4 class="destino">Destino: </h4>
+                </ion-label>
+              </ion-col>
+              <ion-col size="9">
+                <ion-label>
+                  <p>{{ item.direccion_llegada_exact }}</p>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+    </div>
+    <ng-template #ninguno2>
+      <div class="centrar">
+        <h4>No tienes envios</h4>
+      </div>
+    </ng-template>
+  </ion-list>
+</ion-content>

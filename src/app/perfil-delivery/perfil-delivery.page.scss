@@ -1,0 +1,53 @@
+.header-pefil{
+  height: 115px;
+  background-color: #92c751;
+  border-radius: 0px 0 35px 35px;
+  margin-top: -17px;
+  padding-top: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  overflow: hidden;
+}
+.content-header-perfil-image {
+    display: inline-flex;
+}
+.nombre_usuario {
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    color: white;
+    padding-top: 26px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 15px;
+    font-family: "Rubik", sans-serif !important;
+}
+ion-list {
+    margin-top: 45px;
+}
+ion-item {
+    --background: #f6f6fb;
+    color: #000;
+    font-family: "Rubik", sans-serif !important;
+    font-size: 16px;
+    font-weight: 600;
+    --border-color: #efefef;
+    --color-activated: #92c751;
+}
+ion-item img {
+    padding-right: 40px;
+    padding-left: 50px;
+}
+img.img-cards {
+    padding-right: 43px !important;
+    padding-left: 53px !important;
+}
+ion-list {
+    background: #f6f6fb !important;
+}
+img.ImagenUsuario {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 100%;
+}

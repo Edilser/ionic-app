@@ -1,0 +1,143 @@
+<ion-content>
+  <div class="map-wrapper" style="height: 100%;">
+    <ion-toolbar style="--background: #fff;">
+      <ion-buttons slot="start">
+        <ion-back-button text="Regresar" icon="chevron-back-outline" class="custom_bk1" defaultHref="/home/tabs/home-inicio">
+        </ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar style="top: 60px;" [hidden]="show_position1">
+      <ion-searchbar animated [(ngModel)]="autocomplete.input" placeholder="Dirección para recoger el paquete." (click)="ShowFirstContent()"></ion-searchbar>
+    </ion-toolbar>
+    <ion-toolbar style="top:125px" [hidden]="show_position2">
+      <ion-searchbar animated [(ngModel)]="autocomplete2.input" placeholder="Dirección para entregar el paquete." (click)="ShowSecondContent()"        ></ion-searchbar>
+    </ion-toolbar>
+    <div #map id="map" style="height: 100%;">
+    </div>
+    <div class="container-btn-ubicacion">
+      <ion-button expand="full" class="custom_btn1" [hidden]="show_btn1" (click)="ElegirUbicacionInicio()">Elegir ubicación de salida
+      </ion-button> 
+      <ion-button expand="full" class="custom_btn1" [hidden]="show_btn2" (click)="ElegirUbicacionFinal()">Elegir ubicación de Entrega
+      </ion-button>
+      <ion-button expand="full" class="custom_btn1" [hidden]="show_btn3" (click)="HacerEnvio()">Hacer el envío
+      </ion-button>
+    </div> 
+  </div>
+
+  <div class="container-select-ubicacion" [hidden]="show_content_1">
+    <ion-button slot="start" class="custom_regresar" (click)="Elegirenelmapa()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+    <ion-toolbar style="top: 60px;">
+      <ion-searchbar animated [(ngModel)]="autocomplete.input" (ionInput)="UpdateSearchResults()"
+        placeholder="Escribir Dirección de Salida" (ionClear)="ClearAutocomplete()"></ion-searchbar>
+    </ion-toolbar>
+    <ion-list [hidden]="autocomplete.input.length == 0" class="list1">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)" lines="full" >
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+    <div class="container-button-ubicacion">
+      <ion-button  slot="start" expand="full" (click)="get_posicion()" class="btn_custom2"> 
+        <img src="../../assets/icon/i-gps2.png" style="    margin-right: 20px;margin-left: -32px;">
+        Locación actual
+      </ion-button>
+      <ion-button expand="full" (click)="Elegirenelmapa()" class="btn_custom2" >
+        <img src="../../assets/icon/i-location-off.png" style="    margin-right: 20px;margin-left: -32px;">
+        Elegir en el mapa
+      </ion-button>
+      <div class="historial-container" >
+        <p>Historial</p>
+      </div> 
+    </div>
+  </div>
+
+  <div class="container-select-ubicacion" [hidden]="show_content_2">
+    <ion-button slot="start" class="custom_regresar" (click)="Elegirenelmapa()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      Regresar
+    </ion-button>
+    <ion-toolbar style="top: 60px;">
+      <ion-searchbar animated [(ngModel)]="autocomplete2.input" (ionInput)="UpdateSearchResults2()"
+        placeholder="Escribir Dirección de Entrega" (ionClear)="ClearAutocomplete2()"></ion-searchbar>
+    </ion-toolbar>
+    <ion-list [hidden]="autocomplete2.input.length == 0" class="list1">
+      <ion-item *ngFor="let item of autocompleteItems2" tappable (click)="SelectSearchResult2(item)" lines="full">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+    <div class="container-button-ubicacion">
+      <ion-button slot="start" expand="full" (click)="get_posicion2()" class="btn_custom2">
+        <img src="../../assets/icon/i-gps2.png" style="    margin-right: 20px;margin-left: -32px;">
+        Locación actual
+      </ion-button>
+      <ion-button expand="full" (click)="Elegirenelmapa2()" class="btn_custom2">
+        <img src="../../assets/icon/i-location-off.png" style="    margin-right: 20px;margin-left: -32px;">
+        Elegir en el mapa
+      </ion-button>
+      <div class="historial-container">
+        <p>Historial</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-info-delivery" [hidden]="show_content_3">
+    <ion-button slot="start" class="custom_regresar" href="/home">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      Cancelar envío
+    </ion-button>
+    <div class="content-delivery">
+      <h3>¿Quién envia tu paquete?</h3>
+      <form [formGroup]="completeShipment">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input inputmode="text" formControlName="name" [(ngModel)]="nameF"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Télefono</ion-label>
+        <ion-input inputmode="number" formControlName="phone" [(ngModel)]="phoneF"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.phone">
+        <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Información adicional</ion-label>
+        <ion-textarea placeholder="" formControlName="name2" [(ngModel)]="notasSalida"></ion-textarea>
+      </ion-item>
+      <h3>¿Quién recibe tu paquete?</h3>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input inputmode="text" formControlName="name2" [(ngModel)]="nameFF"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.name">
+        <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Télefono</ion-label>
+        <ion-input inputmode="number" formControlName="phone2" [(ngModel)]="phoneFF"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.phone">
+        <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label position="stacked">Información adicional</ion-label>
+        <ion-textarea placeholder="" formControlName="name2" [(ngModel)]="notasEntrega"></ion-textarea>
+      </ion-item>
+      </form>
+    </div>
+    <ion-button expand="full" class="custom_btn1" (click)="ContinuarFinal()">Continuar
+    </ion-button>
+  </div>
+</ion-content>

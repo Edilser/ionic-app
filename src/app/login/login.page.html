@@ -1,0 +1,30 @@
+<ion-header>
+  <div class="header-rift-login">
+    <div class="content-header-rift-image">
+      <img src="../../assets/icon/login.svg" alt="Logo">
+    </div>
+    <div class="content-header-rift">
+      <h3>¡Bienvenido a Rift!</h3>
+      <p>Envia y rastrea tus paquetes más fácil.</p>
+    </div>
+  </div>
+</ion-header> 
+
+<ion-content padding>
+  <ion-button class="btn_fb" expand="block">
+    <ion-icon slot="start"  name="logo-facebook"></ion-icon>
+    Ingresa con Facebook
+  </ion-button>
+  <ion-item lines="full" class="custom-input1">
+    <ion-label position="floating"> Correo Electrónico </ion-label>
+    <ion-input type="text" [(ngModel)]="email" name="email"> </ion-input>
+  </ion-item>
+  <ion-item lines="full" class="custom-input1">
+    <ion-label position="floating"> Contraseña </ion-label>
+    <ion-input type="password" [(ngModel)]="password" name="password"> </ion-input>
+  </ion-item>
+  <p style="text-align: left;font-size: 14px;">Olvide mi contraseña? <ion-router-link class="custom-link1" href="register">Restaurar</ion-router-link></p>
+  <br>
+  <ion-button class="custom-btn1" expand="block" (click)="OnSubmitLogin()" >Ingresar</ion-button>
+  <p style="text-align: center;">No tengo Cuenta, <ion-router-link class="custom-link1" href="register">registrarme</ion-router-link></p>
+</ion-content>

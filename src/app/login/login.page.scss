@@ -1,0 +1,55 @@
+.icon_login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.header-rift-login {
+    height: 280px;
+    background-color: #fff;
+    border-radius: 0px 0 35px 35px;
+    margin-top: -17px;
+    padding-top: 70px;
+}
+.content-header-rift-image {
+    color: #000;
+    text-align: center;
+}
+.content-header-rift-image {
+    height: 50%;
+    text-align: center;
+}
+.content-header-rift {
+    color: #000;
+    text-align: center;
+}
+.content-header-rift-image img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+    background-color: gray;
+}
+ion-content{
+    --background: #f6f6fb;
+    --color: #000;
+    --padding-end: 28px;
+    --padding-start: 28px;
+    --offset-top: 2px !important;
+    --padding-top: calc( 100vh - 96vh);
+}
+.custom-input1{
+    --background: #f6f6fb;
+    --color: #000;
+}
+ion-header{
+    background: #f6f6fb;
+}
+.header-md::after {
+    background-image: none !important;
+}
+:host {
+  .item-interactive.ion-valid{
+    --highlight-background: #92c751 !important;
+  }
+}

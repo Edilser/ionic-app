@@ -1,0 +1,89 @@
+ion-content.envios-camino {
+    color: #000;
+    --color: #000;
+}
+ion-content.envios-pasados {
+    color: #000;
+    --color: #000;
+}
+ion-content.show_custom {
+    display: block;
+}
+ion-content.hidden_custom {
+    display: none;
+}
+ion-card {
+    --backgorund: #fff !important;
+    background: #fff !important;
+}
+ion-item {
+    --background: #fff;
+    color: #000;
+    margin: 0 19px;
+    border-top: 1px solid #dedede;
+    --border-width: 0;
+    --padding-start: 0;
+}
+ion-item-divider {
+    background: #fff;
+    color: #000;
+}
+ion-card-subtitle {
+    position: relative;
+}
+span.envio_entrega_text {
+    margin-top: -1px !important;
+    position: absolute;
+    margin-left: 10px;
+}
+ion-card-content {
+    margin-top: -13px;
+}
+.envio_por_text {
+    font-size: 13px !important;
+    color: #545664 !important;
+    margin-top: 5px;
+    position: absolute;
+    margin-left: 5px;
+}
+span.total_text {
+    font-family: "Rubik", sans-serif !important;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+span.total_text_pasados {
+    position: absolute;
+    right: 0;
+    font-family: "Rubik", sans-serif !important;
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #6ec41b;
+}
+ion-tab-bar.nested_tab_custom {
+    background: #f6f6fb;
+    border-bottom: none !important;
+}
+ion-tab-bar.nested_tab_custom ion-tab-button {
+    background: #f6f6fb;
+}
+ion-tab-bar.nested_tab_custom ion-label{
+    color:#000;
+    font-family: "Rubik", sans-serif !important;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+ion-tab-button.show_custom {
+    border-bottom: 2px solid #92c751;
+    width: 100% !important;
+    --padding-top: 0;
+    --padding-end: 0;
+    --padding-bottom: 0;
+    --padding-start: 0;
+}
+
+.btnRoute {
+    --color: #6ec41b;
+    font-weight: bold;;
+    text-transform: none;
+    font-size: 15px;
+}

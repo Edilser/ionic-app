@@ -1,0 +1,44 @@
+<ion-content padding>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Regresar" icon="chevron-back-outline" class="custom_bk1" defaultHref="/tabs/perfil">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmitRegister()">
+  <div class="container-image">
+    <img [src]=im class="icon_login">
+    <img src="../../assets/icon/edit.png" class="icon_edit"> 
+    <ion-input type="file" accept="image/*" (change)="changeListener($event)" class="type_picture"></ion-input> 
+  </div>
+  <ion-item class="custom-input1" lines="full">
+    <ion-label position="floating">Nombre Completo</ion-label>
+    <ion-input inputmode="text" formControlName="name" [(ngModel)]="nameF"> </ion-input>
+  </ion-item>
+  <div *ngFor="let error of errorMessages.name">
+    <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+      <small class="error-message">{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-item class="custom-input1" lines="full">
+    <ion-label position="floating"> Celular </ion-label>
+    <ion-input inputmode="number" formControlName="phone" [(ngModel)]="phoneF"> </ion-input>
+  </ion-item>
+  <div *ngFor="let error of errorMessages.phone">
+    <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+      <small class="error-message">{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-item class="custom-input1" lines="full">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input inputmode="email" formControlName="email" [(ngModel)]="emailF"> </ion-input>
+  </ion-item>
+  <div *ngFor="let error of errorMessages.email">
+    <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+      <small class="error-message">{{error.message}}</small>
+    </ng-container>
+  </div>
+  <ion-button class="custom-btn1" [disabled]="!registrationForm.valid" type="submit" expand="block">Guardar
+  </ion-button>
+</form>
+</ion-content>

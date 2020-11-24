@@ -1,0 +1,60 @@
+
+<ion-content padding>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmitRegister()">
+    <h2 style="text-align: center;color:#000">Crear Cuenta</h2>    
+    <img [src]=pathImage class="icon_login">
+    <ion-input type="file" accept="image/*" (change)="changeListener($event)" class="type_picture"></ion-input>
+    <ion-item class="custom-input1" lines="full"> 
+      <ion-label position="floating">Nombre Completo</ion-label>
+      <ion-input inputmode="text" formControlName="name" [(ngModel)]="nameF"> </ion-input>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.name">
+      <ng-container *ngIf="name.hasError(error.type) && (name.dirty || name.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+    <ion-item class="custom-input1" lines="full">
+      <ion-label position="floating"> Celular </ion-label>
+      <ion-input inputmode="number" formControlName="phone" [(ngModel)]="phoneF"> </ion-input>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.phone">
+      <ng-container *ngIf="phone.hasError(error.type) && (phone.dirty || phone.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+    <ion-item class="custom-input1" lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input inputmode="email" formControlName="email" [(ngModel)]="emailF"> </ion-input>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+    <ion-item class="custom-input1" lines="full">
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" placeholder="Select Date" formControlName="date" [(ngModel)]="dateF"></ion-datetime>
+    </ion-item>
+    <div *ngFor="let error of errorMessages.date">
+      <ng-container *ngIf="date.hasError(error.type) && (date.dirty || date.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+    <ion-item class="custom-input1" lines="full">
+      <ion-label position="floating"> Contraseña </ion-label>
+      <ion-input formControlName="password" type="password" [(ngModel)]="passwordF"> </ion-input>
+    </ion-item>
+    <ion-item class="custom-input1" lines="full">
+      <ion-label position="floating">Confirmar Contraseña</ion-label>
+      <ion-input formControlName="confirmpassword" type="password" > </ion-input>
+    </ion-item>
+    <div class="error-message"
+      *ngIf="!registrationForm.get('confirmpassword').errors && registrationForm.hasError('passwordNotMatch') && (registrationForm.get('confirmpassword').dirty || registrationForm.get('confirmpassword').touched)">
+      Password and Confirm Password fields should match
+    </div>
+    <p style="text-align: left;color: #7b7d9d;font-size: 14px;">Al usar esta aplicación, aceptas nuestros <span class="custom-link1"
+      routerLink="/login">Términos de Uso</span> y <span class="custom-link1" routerLink="/login">Políticas de privacidad.</span></p>
+    <ion-button class="custom-btn1" [disabled]="!registrationForm.valid"  type="submit" expand="block">Crear Cuenta</ion-button>
+  </form>
+  <p style="text-align: center;color:#7b7d9d" >!Ya tengo cuenta¡ <span class="custom-link1" routerLink="/login">Ingresar</span> </p>
+</ion-content>

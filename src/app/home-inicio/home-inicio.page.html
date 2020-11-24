@@ -1,0 +1,62 @@
+<ion-content>
+    <div class="header-menu">
+      <div class="content-header-rift">
+        <h3 class="custom-title1">¡Hola!</h3>
+        <p class="custom-text1">¿Que quieres enviar hoy?</p>
+      </div>
+      <div class="content-header-home-rift-image">
+        <img src="../../assets/icon/delivery-package.png" alt="Logo">
+      </div>
+    </div>
+
+    <div class="container-home">
+      <ion-card [href]="[urlenvios+'/cualquiera']">
+        <img class="custom_option1" src="../../assets/icon/i-motorcycle.png">
+        <ion-card-header>
+          <ion-card-subtitle>Mensajeria</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/pickup']">
+        <img class="custom_option1" src="../../assets/icon/i-pickup.png">
+        <ion-card-header>
+          <ion-card-subtitle>Pick Up</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/camioncito']">
+        <img class="custom_option1" src="../../assets/icon/i-camioncito.png">
+        <ion-card-header>
+          <ion-card-subtitle>Camioncito</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/camion']">
+        <img class="custom_option1" src="../../assets/icon/i-camion.png">
+        <ion-card-header>
+          <ion-card-subtitle>Camión</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/grua']">
+        <img class="custom_option1" src="../../assets/icon/i-grua.png">
+        <ion-card-header>
+          <ion-card-subtitle>Grúa</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/trailer']">
+        <img class="custom_option1" src="../../assets/icon/i-trailer.png">
+        <ion-card-header>
+          <ion-card-subtitle>Trailer</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/bote']">
+        <img class="custom_option1" src="../../assets/icon/i-boat.png">
+        <ion-card-header>
+          <ion-card-subtitle>Bote</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+      <ion-card [routerLink]="[urlenvios+'/avioneta']">
+        <img class="custom_option1" src="../../assets/icon/i-plane.png">
+        <ion-card-header>
+          <ion-card-subtitle>Avioneta</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </div>
+</ion-content>

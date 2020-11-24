@@ -1,0 +1,30 @@
+ion-content{
+    --padding-end: 28px;
+    --padding-start: 28px;
+}
+.icon_login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    border-radius: 100%;
+    object-fit: contain;
+    height: 90px;
+}
+.error-message {
+    color: var(--ion-color-danger);
+}
+:host {
+  .item-interactive.ion-valid{
+    --highlight-background: #92c751 !important;
+  }
+}
+ion-input.type_picture {
+    position: absolute;
+    top: 53px;
+    width: 60px;
+    overflow: hidden;
+    height: 60px;
+    left: 155px;
+    opacity: 0;
+}

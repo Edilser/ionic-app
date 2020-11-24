@@ -1,0 +1,53 @@
+
+  <ion-tab-bar class="nested_tab_custom" slot="top">
+    <ion-tab-button class="{{activeClass2 ? 'show_custom' : 'hidden_custom' }}" (click)="clickTab($event, 'envios-pasados')" [routerLink]="['envios-pasados']" tab="envios-pasados" layout="icon-start">
+      <ion-label>Envíos pasados</ion-label>
+    </ion-tab-button>
+    <ion-tab-button  class="{{!activeClass2 ? 'show_custom' : 'hidden_custom' }}" (click)="clickTab($event, 'envios-camino')" [routerLink]="['envios-camino']" tab="envios-camino" layout="icon-start">
+      <ion-label>Envíos en camino</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+<ion-content class="envios-camino" [hidden]="!activeClass">
+  <ion-card *ngFor="let proceso of ShipmentsProceso; index as i">
+    <div #map id="mapp{{i}}" style="height: 170px"></div>
+    <ion-card-header>
+      <ion-card-subtitle><img src="../../assets/icon/i-check.png"><span class="envio_entrega_text">Envío Camino</span>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>  
+      {{proceso.f_completar}}
+    </ion-card-content>
+    <ion-item lines="full">
+      <ion-label><img src="../../assets/icon/i-user2.png"><span class="envio_por_text">Tu envío se realizó por {{proceso.nameRep}}</span></ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label><span class="total_text">Total</span><span class="total_text_pasados">GTQ100.00</span></ion-label>
+    </ion-item>
+    <ion-button class="btnRoute" (click)="loadMap2(i, {lat: proceso.direccion_salida_lat, lng: proceso.direccion_salida_lon}, {lat: proceso.direccion_llegada_lat, lng: proceso.direccion_llegada_lon})" expand="block" fill="clear" shape="round">
+      Ver ruta
+    </ion-button>
+  </ion-card>
+</ion-content>
+
+
+<ion-content [hidden]="activeClass" class="envios-pasados">
+  <ion-card *ngFor="let entregado of ShipmentsCompletado; index as i">
+    <div #map id="map{{i}}" style="height: 170px"></div>
+    <ion-card-header>
+      <ion-card-subtitle><img src="../../assets/icon/i-check.png"><span class="envio_entrega_text">Envío entregado</span></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{entregado.f_completar}}
+    </ion-card-content>
+    <ion-item lines="full">
+      <ion-label ><img src="../../assets/icon/i-user2.png"><span class="envio_por_text">Tu envío se realizó por {{entregado.nameRep}}</span></ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label><span class="total_text">Total</span><span class="total_text_pasados">GTQ100.00</span></ion-label>
+    </ion-item>
+    <ion-button class="btnRoute" (click)="loadMap(i, {lat: entregado.direccion_salida_lat, lng: entregado.direccion_salida_lon}, {lat: entregado.direccion_llegada_lat, lng: entregado.direccion_llegada_lon})" expand="block" fill="clear" shape="round">
+      Ver ruta
+    </ion-button>
+  </ion-card>
+</ion-content>

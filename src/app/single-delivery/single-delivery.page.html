@@ -1,0 +1,165 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Regresar" icon="chevron-back-outline" class="custom_bk1" defaultHref="/tabs/home-delivery2">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div id="map_canvas"></div>
+  <!--<div id="indicators"></div>-->
+  <!--SHIPMENT STATE PENDIENTE-->
+  <ion-card [class]="class_show">
+  <div class="first-container-iniciar-viaje" *ngIf="stateShipment === 'pendiente'" (click)="show_more()" [class]="">
+  <ion-list class="first-ion-card-custom">
+    <div class="line-green"></div>
+    <ion-item>
+      <ion-grid fixed>
+        <ion-row class="contenedor">
+          <div class="fila1">
+            <div style="width: 42px;">
+              <ion-avatar style="padding-top: 10px;">
+                <ion-icon  size="large" name="person-circle-outline"></ion-icon>
+              </ion-avatar>
+            </div>
+            <div>
+              <ion-label>
+                <p style="color: gray;">Cliente</p>
+                <h2 style="font-weight: bold;">{{cliente}}</h2>
+              </ion-label>
+            </div>
+          </div>
+            
+            <div>
+              <div class="div-phone" style="margin-right: 10px;">
+                <ion-icon class="phone" name="call"></ion-icon>
+              </div>
+              <div class="div-phone">
+                <ion-icon class="message" name="chatbox-ellipses"></ion-icon>
+              </div>
+            </div>
+            
+        </ion-row>
+        <ion-row class="espacio">
+          <div style="align-items:center;">
+            <div style="align-items: center; margin-right: 5px;">
+              <ion-icon class="clock" name="time-outline"></ion-icon>
+            </div>
+            <div>
+              <p style="color: gray;">Hora estimada de entrega</p>
+            </div>
+          </div>
+          <div style="font-weight: bold; align-items: center;">
+            {{time}}
+          </div>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <div class="cont">
+            <div class="origen">
+              <ion-icon style="color:#5d842d;" name="location-sharp"></ion-icon>
+            </div>
+            <div>
+              <p style="font-weight: bold;">Origen</p>
+            </div>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="arriba">
+            <p class="parrafo">{{Dorigen}}</p>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="cont">
+            <div class="origen">
+              <ion-icon style="color: #92c751;" name="location-sharp"></ion-icon>
+            </div>
+            <div>
+              <p style="font-weight: bold;">Destino</p>
+            </div>
+          </div>
+        </ion-row>
+        <ion-row>
+          <div class="arriba">
+            <p class="parrafo">{{Ddestino}}</p>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <section>
+      <ion-button class="boton" (click)="ShipmentProcess(keyShipment)" expand="block">Iniciar envío</ion-button>
+    </section>
+  </ion-list>
+  </div>
+  <!--SHIPMENT STATE PROCESO-->
+  <div class="second_container_info" *ngIf="stateShipment === 'proceso'">
+    <ion-list>
+      <ion-item>
+        <ion-grid fixed>
+          <ion-row class="contenedor">
+            <div class="fila1">
+              <div style="width: 42px;">
+                <ion-avatar style="padding-top: 10px;">
+                  <ion-icon  size="large" name="person-circle-outline"></ion-icon>
+                </ion-avatar>
+              </div>
+              <div>
+                <ion-label>
+                  <p style="color: gray;">Cliente</p>
+                  <h2 style="font-weight: bold;">{{cliente}}</h2>
+                </ion-label>
+              </div>
+            </div>
+              
+              <div>
+                <div class="div-phone" style="margin-right: 10px;">
+                  <ion-icon class="phone" name="call"></ion-icon>
+                </div>
+                <div class="div-phone">
+                  <ion-icon class="message" name="chatbox-ellipses"></ion-icon>
+                </div>
+              </div>
+              
+          </ion-row>
+          <ion-row class="espacio">
+            <div style="align-items:center;">
+              <div style="align-items: center; margin-right: 5px;">
+                <ion-icon class="clock" name="time-outline"></ion-icon>
+              </div>
+              <div>
+                <p style="color: gray;">Hora estimada de entrega</p>
+              </div>
+            </div>
+            <div style="font-weight: bold; align-items: center;">
+              {{time}}
+            </div>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <section class="botones">
+        <ion-button id="llegue" class="botons" (click)="yallegue(keyShipment)" [disabled]="disableBtn1">Ya llegué</ion-button>
+        <ion-button id="cambio" class="botons2" (click)="finalizar(keyShipment)" [disabled]="disableBtn2">Finalizar viaje</ion-button>
+      </section>
+    </ion-list>
+  </div>
+  <!--SHIPMENT STATE COMPLETADO-->
+  <div *ngIf="stateShipment === 'completado'">
+
+  </div>
+  <!---->
+  <div *ngIf="stateVerification" class="saveshipment">
+    <div>
+      <h4 style="font-weight: bold; color: black;">Notas</h4>
+    </div>
+ 
+      <textarea [(ngModel)]="save" name="save" id="" cols="30" rows="4"></textarea>
+  
+      <ion-button (click)="completeShipment(keyShipment)">
+        Guardar y hacer otro envío
+      </ion-button>
+    
+  </div>
+</ion-card>
+</ion-content>

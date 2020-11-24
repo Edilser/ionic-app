@@ -1,0 +1,168 @@
+ion-content {
+  #map {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    display: block;
+    &.show-map{
+      opacity: 1;
+    }
+  }
+}
+.show-map .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom{
+  display: none;
+}
+ion-back-button.custom_bk1{
+    color: #000;
+    font-family: "Rubik", sans-serif !important;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 16px;
+
+}
+ion-toolbar{
+    --background: transparent;
+    color: #000;
+    position: absolute;
+}
+.get_posicion_container {
+    position: absolute;
+    bottom: 50px;
+    z-index: 11;
+    left: 15px;
+}
+#map a[href^="http://maps.google.com/maps"]{display:none !important}
+#map a[href^="https://maps.google.com/maps"]{display:none !important}
+
+#map .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+    display:none;
+}
+#map .gmnoprint div {
+    background:none !important;
+}
+.custom_position1{
+    background: white;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin: 0px auto;
+    box-shadow: 0px 0px 4px 0px #000;
+}
+.custom_icon{
+    margin: 0px auto;
+    top: 6px;
+    position: absolute;
+    right:25px;
+}
+img.icon_gps {
+    position: absolute;
+    top: 12px;
+    right: 13px;
+}
+ion-searchbar {
+    --background: #f7f7fb !important;
+    --color: #448a32 !important;
+    color: #448a32 !important;
+    font-family: "Rubik", sans-serif !important;
+}
+.custom_btn1 {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    --background: #92c751;
+    font-size: 17px;
+    height: 51px !important;
+    border-radius: 10px !important;
+    --border-radius: 10px !important;
+}
+.container-info-delivery h3{
+    font-family: "Rubik", sans-serif !important;
+    color: #000;
+        font-size: 1.2em;
+}
+.container-info-delivery ion-item{
+    --background: transparent;
+    --color: #545664;
+    font-size: 1.2em;
+}
+.content-delivery{
+    padding: 0 25px;
+}
+.container-info-delivery{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    /*background: #f6f6fb;*/
+    background: #f6f6fb;
+    z-index: 10;
+}
+.container-select-ubicacion {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    /*background: #f6f6fb;*/
+    background: #fff;
+    z-index: 10;
+}
+ion-list.list1 {
+    position: absolute;
+    top: 111px;
+    background-color: #f6f6fb;
+        z-index: 1;
+}
+ion-list.list1 ion-item{
+  --background: #f6f6fb;
+    color: #448a32;
+    font-size: 1em;
+    
+}
+.container-button-ubicacion {
+    position: absolute;
+    width: 98%;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    left: 1%;
+    top: 113px;
+    font-family: "Rubik", sans-serif !important;
+}
+.btn_custom2 {
+    margin-top: 20px;
+    --background: #f6f6fb;
+    --color: #545664;
+    font-family: "Rubik", sans-serif !important;
+    text-transform: inherit;
+}
+.historial-container{
+    font-family: "Rubik", sans-serif !important;
+    color: #4b4c61;
+    width: 80%;
+    margin: 0px auto;
+    text-align: left;
+}
+.custom_regresar {
+    --background: #f0f8ff00;
+    --color: #000;
+    --box-shadow: none !important;
+    text-transform: capitalize;
+}
+:host {
+  .item-interactive.ion-valid{
+    --highlight-background: #92c751 !important;
+  }
+}
+
+.item-interactive.ion-valid{
+    --highlight-background: #92c751 !important;
+  }
+ion-item.item-has-focus > ion-label{
+  color:  #6ec41b  !important;
+}
+.item-has-focus{
+   --highlight-background: #92c751;
+}
